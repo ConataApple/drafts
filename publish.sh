@@ -15,7 +15,6 @@ git push -q https://ConataApple:$TOKEN@github.com/ConataApple/drafts.git main
 echo "▶ 正在编译并发布到 https://drafts.douzong.top ..."
 hugo --minify
 cd public
-rm -rf .git
 git init -q -b gh-pages
 git add -A
 git commit -q -m "deploy $(date '+%Y-%m-%d %H:%M')"
