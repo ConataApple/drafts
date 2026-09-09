@@ -19,17 +19,17 @@ Olivia 的 Hugo 博客，域名 **https://drafts.douzong.top**
    正文用 Markdown 写。
    ```
 
-3. 提交并推送到 GitHub：
+3. 在项目目录里运行一条命令发布：
 
    ```bash
-   git add .
-   git commit -m "新增文章：文章标题"
-   git push origin main
+   ./publish.sh
    ```
 
-4. 等一两分钟，打开 https://drafts.douzong.top 就能看到。
+   它会自动把源码备份到 GitHub，并把网站编译发布到 GitHub Pages。
 
-> 不会用 git 也没关系：可以直接在 GitHub 网页上进入 `content/posts/`，点 Add file → Create new file，写好内容提交即可，效果一样。
+4. 打开 https://drafts.douzong.top 就能看到（首次绑定域名可能要等 DNS 生效，几分钟到几小时）。
+
+> 不会用命令行也没关系：可以直接在 GitHub 网页上进入 `content/posts/`，点 Add file → Create new file 写好内容，然后在本地跑 `./publish.sh` 发布即可。
 
 ## 本地预览（可选）
 
