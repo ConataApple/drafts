@@ -1,22 +1,32 @@
 baseURL = "https://drafts.douzong.top/"
 locale = "zh-CN"
 title = "drafts"
-enableEmoji = true
+theme = "PaperMod"
 
 [params]
-  description = "Olivia 的 Hugo 博客"
-  author = "Olivia"
+  description = "Olivia 的博客"
+  defaultTheme = "auto"          # auto / light / dark
+  disableThemeToggle = false
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowCodeCopyButtons = true
+  hideFooter = false
+
+[params.home]
+  # 文章列表模式（不启用 Profile 个人主页）
+  pageSize = 5
 
 [menu]
   [[menu.main]]
-    name = "首页"
-    url = "/"
-    weight = 1
-  [[menu.main]]
     name = "文章"
     url = "/posts/"
+    weight = 1
+  [[menu.main]]
+    name = "标签"
+    url = "/tags/"
     weight = 2
-
-[markup]
-  [markup.goldmark.renderer]
-    unsafe = true
+  [[menu.main]]
+    name = "分类"
+    url = "/categories/"
+    weight = 3
