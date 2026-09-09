@@ -20,9 +20,3 @@ enableEmoji = true
 [markup]
   [markup.goldmark.renderer]
     unsafe = true
-
-[deployment]
-  [[deployment.targets]]
-    name = "github"
-    URL = "https://x-access-token:${GITHUB_TOKEN}@github.com/ConataApple/drafts.git"
-    branch = "gh-pages"
