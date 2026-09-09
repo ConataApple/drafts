@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>drafts</title><link>https://drafts.douzong.top/</link><description>Recent content on drafts</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Wed, 09 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://drafts.douzong.top/index.xml" rel="self" type="application/rss+xml"/><item><title>你好，世界</title><link>https://drafts.douzong.top/posts/welcome/</link><pubDate>Wed, 09 Sep 2026 00:00:00 +0000</pubDate><guid>https://drafts.douzong.top/posts/welcome/</guid><description>&lt;p&gt;这是第一篇示例文章。&lt;/p&gt;
+&lt;h2 id="怎么发新文章"&gt;怎么发新文章&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;在 &lt;code&gt;content/posts/&lt;/code&gt; 里新建一个 &lt;code&gt;.md&lt;/code&gt; 文件&lt;/li&gt;
+&lt;li&gt;顶部写好 &lt;code&gt;title&lt;/code&gt; 和 &lt;code&gt;date&lt;/code&gt;（参考下面格式）&lt;/li&gt;
+&lt;li&gt;推送到 GitHub，几秒后网站自动更新&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;就这么简单。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-md" data-lang="md"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;title&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;文章标题&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;date&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;2026-09-09&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;draft&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;正文写在这里，支持 &lt;span style="font-weight:bold"&gt;**Markdown**&lt;/span&gt;。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;小提示：&lt;code&gt;draft: true&lt;/code&gt; 的文章不会出现在线上，写完改成 &lt;code&gt;false&lt;/code&gt; 再推送即可。&lt;/p&gt;
+&lt;/blockquote&gt;</description></item></channel></rss>
