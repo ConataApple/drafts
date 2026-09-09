@@ -1,0 +1,4 @@
+{{ $side := .Get "side" | default "right" }}
+<div class="chat-bubble chat-bubble--{{ $side }}">
+  <div class="chat-bubble__content">{{ .Inner | markdownify }}</div>
+</div>

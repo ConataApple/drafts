@@ -1,0 +1,86 @@
+/* 自定义样式：覆盖 PaperMod 默认宽度，让正文栏更宽（更像 Notion 的阅读感）
+   改这两个变量即可调宽窄，本地预览满意后再推送。 */
+:root {
+  --main-width: 1000px;   /* 正文 / 文章列表栏宽（默认 720px，太窄） */
+  --nav-width: 1000px;    /* 顶部导航 / 页脚对齐宽度 */
+  --primary: #1a1a1a;
+}
+
+/* 行高必须作用在正文元素 .post-content 上；只写 body 会被主题在段落上的 line-height:1.5 盖掉 */
+.post-content,
+.post-content p,
+.post-content li {
+  line-height: 2;
+}
+
+table {
+    font-size: 0.9rem;
+}
+
+.header {
+  position: sticky;      /* 吸顶：滚到顶部就粘住，不被滚动影响 */
+  top: 0;
+  z-index: 100;          /* 压在正文之上 */
+  background: var(--theme);  /* 关键：给栏一个背景色，否则正文会从底下透出来 */
+}
+
+.header-nav { max-width: none; padding: 0 1rem; }
+
+/* 用「小小的淡阴影」代替硬分割线；背景是不透明的，毛玻璃背后没东西可磨，故去掉 */
+.header {
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.06);
+}
+/* 深色主题下黑色阴影看不见，改用白色淡阴影才显出来 */
+[data-theme="dark"] .header {
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* 聊天气泡 shortcode：{{% bubble side="right" %}}...{{% /bubble %}}（默认右侧=我发出去的） */
+.chat-bubble {
+  display: flex;
+  margin: 3rem 0;
+}
+.chat-bubble--right { justify-content: flex-end; }
+.chat-bubble--left  { justify-content: flex-start; }
+
+.chat-bubble__content {
+  max-width: 75%;
+  padding: 0.55rem 0.9rem;
+  border-radius: 16px;
+  line-height: 1.7;
+  font-size: 1rem;
+  word-break: break-word;
+  font-size: 0.9rem;
+}
+/* 右侧 = 我发出的（蓝色气泡，白字） */
+.chat-bubble--right .chat-bubble__content {
+  background: #d6ead2;
+  color: var(--primary);
+  border-bottom-right-radius: 4px;   /* 右下角收一点，像气泡小尾巴 */
+}
+/* 左侧 = 收到的（卡片色气泡） */
+.chat-bubble--left .chat-bubble__content {
+  background: #ebebeb;
+  color: var(--primary);
+  border-bottom-left-radius: 4px;
+}
+
+.md-content hr {
+    height: 1px;
+}
+
+article .post-content strong {
+    text-decoration: underline #bf5052 wavy 0.09em;
+    font-weight: 400;
+    text-underline-offset: 0.33em;
+}
+
+
+.md-content table th, .md-content table:not(.highlighttable,.highlight table,.gist .highlight) td {
+    line-height: 2;
+}
+
+
+.md-content table th {
+  background-color: #999999;
+}

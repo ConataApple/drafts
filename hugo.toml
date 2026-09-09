@@ -3,8 +3,12 @@ locale = "zh-CN"
 title = "drafts"
 theme = "PaperMod"
 
+# 生成首页时同时输出 JSON 索引，供 PaperMod 全文搜索使用
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
 [params]
-  description = "Olivia 的博客"
+  description = "草稿箱"
   defaultTheme = "auto"          # auto / light / dark
   disableThemeToggle = false
   ShowReadingTime = true
@@ -12,6 +16,13 @@ theme = "PaperMod"
   ShowPostNavLinks = true
   ShowCodeCopyButtons = true
   hideFooter = false
+  disableSpecial1stPost = true   # 关掉首页hero式样
+  DateFormat = "2006-02-02 15:04"
+  timezone = "Asia/Shanghai"
+
+  # 站点图标（文件放在 static/ 下）
+  [params.assets]
+    favicon = "favicon.svg"
 
 [params.home]
   # 文章列表模式（不启用 Profile 个人主页）
@@ -30,3 +41,14 @@ theme = "PaperMod"
     name = "分类"
     url = "/categories/"
     weight = 3
+  [[menu.main]]
+    name = "搜索"
+    url = "/search/"
+    weight = 4
+
+# 让正文里的裸链接（https://… 或 www.…）自动变成可点的超链接
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      linkify = true
+      linkifyProtocol = "https"
