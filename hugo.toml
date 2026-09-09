@@ -1,0 +1,22 @@
+baseURL = "https://drafts.douzong.top/"
+locale = "zh-CN"
+title = "drafts"
+enableEmoji = true
+
+[params]
+  description = "Olivia 的 Hugo 博客"
+  author = "Olivia"
+
+[menu]
+  [[menu.main]]
+    name = "首页"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "文章"
+    url = "/posts/"
+    weight = 2
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true

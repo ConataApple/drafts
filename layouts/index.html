@@ -1,0 +1,14 @@
+{{ partial "header.html" . }}
+<main class="home">
+  <h1 class="t1">{{ .Site.Title }}</h1>
+  <p class="t3">{{ .Site.Params.description }}</p>
+  <section class="posts">
+    {{ range (where .Site.RegularPages "Section" "posts") }}
+      <article class="post">
+        <a class="post-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <time class="t3">{{ .Date.Format "2006-01-02" }}</time>
+      </article>
+    {{ end }}
+  </section>
+</main>
+{{ partial "footer.html" . }}
