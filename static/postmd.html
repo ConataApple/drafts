@@ -102,8 +102,8 @@
 
       <section class="pane" data-page-node-id="PTxWp76gTBBj00CSVdH3kB">
         <div class="pane-head" data-page-node-id="GnwNNIKSU2PheHPpMzJfxx">
-          <span class="ttl" data-page-node-id="LFIxjtVJGMlNBpJGEHWMk4">生成的 .md</span>
-          <button class="btn-copy" id="copyBtn" data-page-node-id="LXQfNzL7bqRnr6hL1quOJU">复制 .md</button>
+          <span class="ttl" data-page-node-id="LFIxjtVJGMlNBpJGEHWMk4">将保存的 .md（预览）</span>
+          <button class="btn-copy" id="saveBtn" data-page-node-id="LXQfNzL7bqRnr6hL1quOJU">保存</button>
         </div>
         <textarea id="output" readonly placeholder="这里实时显示生成的 Markdown 代码"></textarea>
       </section>
@@ -175,18 +175,28 @@ draft: false`;
     gen();
   }
 
-  async function copyMd(){
-    const txt = $('#output').value;
+  async function saveMd(){
+    const title = ($('#title').value.trim()) || '未命名文章';
+    const content = $('#output').value;
+    if(!content.trim()){ alert('还没有内容可保存。'); return; }
     try{
-      await navigator.clipboard.writeText(txt);
-    }catch(_){
-      $('#output').select();
-      document.execCommand('copy');
+      const r = await fetch('http://localhost:8787/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, content })
+      });
+      const j = await r.json();
+      if(j.ok){
+        const b = $('#saveBtn');
+        const old = b.textContent;
+        b.textContent = '已保存到 posts ✓';
+        setTimeout(() => { b.textContent = old; }, 1800);
+      } else {
+        alert('保存失败：' + (j.error || '未知错误'));
+      }
+    }catch(e){
+      alert('保存失败：请先双击「postmd-启动.command」启动保存助手。\n\n' + e);
     }
-    const b = $('#copyBtn');
-    const old = b.textContent;
-    b.textContent = '已复制 ✓';
-    setTimeout(() => { b.textContent = old; }, 1500);
   }
 
   // slug 实时归一化（输入即生效，光标置尾——slug 短，体验可接受）
@@ -202,7 +212,7 @@ draft: false`;
   $('#editor').addEventListener('input', gen);
   $('#bubbleL').addEventListener('click', () => wrap('left'));
   $('#bubbleR').addEventListener('click', () => wrap('right'));
-  $('#copyBtn').addEventListener('click', copyMd);
+  $('#saveBtn').addEventListener('click', saveMd);
 
   gen();
 </script>

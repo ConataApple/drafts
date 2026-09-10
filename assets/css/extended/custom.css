@@ -3,7 +3,10 @@
 :root {
   --main-width: 1000px;   /* 正文 / 文章列表栏宽（默认 720px，太窄） */
   --nav-width: 1000px;    /* 顶部导航 / 页脚对齐宽度 */
-  --primary: #1a1a1a;
+  --primary: #161616;
+  --border: #f2f2f2;
+  --content: #161616;
+
 }
 
 /* 行高必须作用在正文元素 .post-content 上；只写 body 会被主题在段落上的 line-height:1.5 盖掉 */
@@ -14,7 +17,7 @@
 }
 
 table {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
 }
 
 .header {
@@ -50,15 +53,14 @@ table {
   line-height: 1.7;
   font-size: 1rem;
   word-break: break-word;
-  font-size: 0.9rem;
 }
-/* 右侧 = 我发出的（蓝色气泡，白字） */
+/* 右侧 = 我发出的 */
 .chat-bubble--right .chat-bubble__content {
   background: #d6ead2;
   color: var(--primary);
   border-bottom-right-radius: 4px;   /* 右下角收一点，像气泡小尾巴 */
 }
-/* 左侧 = 收到的（卡片色气泡） */
+/* 左侧 = 收到的 */
 .chat-bubble--left .chat-bubble__content {
   background: #ebebeb;
   color: var(--primary);
@@ -72,15 +74,38 @@ table {
 article .post-content strong {
     text-decoration: underline #bf5052 wavy 0.09em;
     font-weight: 400;
-    text-underline-offset: 0.33em;
+    text-underline-offset: 0.3em;
 }
 
 
-.md-content table th, .md-content table:not(.highlighttable,.highlight table,.gist .highlight) td {
-    line-height: 2;
+.md-content table:not(.highlighttable,.highlight table,.gist .highlight) td {
+    line-height: 1.8;
 }
 
 
 .md-content table th {
-  background-color: #999999;
+  background-color: #f2f2f2;
+  line-height: 2;
+}
+
+.post-title {
+    font-size: 2.25rem;
+}
+
+body {
+  font-size: 1rem;
+}
+
+.md-content h2 {
+  font-size: 1.75rem;
+}
+
+.md-content h3 {
+  font-size: 1.375rem;
+}
+
+.md-content blockquote {
+    margin: 1rem 0;
+    padding-inline-start: 1rem;
+    border-inline-start: .3rem solid var(--primary);
 }
