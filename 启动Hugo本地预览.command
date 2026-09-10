@@ -2,7 +2,7 @@
 # 启动 Hugo 本地预览：自动起服务器 + 自动打开浏览器
 # 关闭此终端窗口（Cmd+W）或按 Ctrl+C 即可停止服务器
 
-cd "/Users/olivia/WorkBuddy/2026-09-09-17-35-35" || exit 1
+cd "$(dirname "$0")" || exit 1
 
 # 找 hugo：优先 PATH，找不到再用 Homebrew 默认路径
 HUGO="$(command -v hugo 2>/dev/null || echo /opt/homebrew/bin/hugo)"
