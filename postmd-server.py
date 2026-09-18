@@ -14,6 +14,24 @@ PORT = 8787
 
 
 class Handler(http.server.BaseHTTPRequestHandler):
+    # 按扩展名返回正确 Content-Type，否则浏览器会把 SVG 当成
+    # text/html 而拒绝在 <img> 里渲染（logo 不显示）。
+    MIME = {
+        ".html": "text/html; charset=utf-8",
+        ".svg": "image/svg+xml",
+        ".css": "text/css; charset=utf-8",
+        ".js": "application/javascript; charset=utf-8",
+        ".json": "application/json; charset=utf-8",
+        ".png": "image/png",
+        ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg",
+        ".gif": "image/gif",
+        ".ico": "image/x-icon",
+        ".woff2": "font/woff2",
+        ".woff": "font/woff",
+        ".md": "text/markdown; charset=utf-8",
+    }
+
     def _send_json(self, obj, code=200):
         body = json.dumps(obj, ensure_ascii=False).encode("utf-8")
         self.send_response(code)
@@ -33,8 +51,11 @@ class Handler(http.server.BaseHTTPRequestHandler):
             self.send_error(403)
             return
         if os.path.isfile(fp):
+            ext = os.path.splitext(fp)[1].lower()
+            ctype = self.MIME.get(ext, "application/octet-stream")
             self.send_response(200)
-            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Type", ctype)
+            self.send_header("Content-Length", str(os.path.getsize(fp)))
             self.end_headers()
             with open(fp, "rb") as f:
                 shutil.copyfileobj(f, self.wfile)

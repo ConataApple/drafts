@@ -29,7 +29,8 @@
 
   /* 顶部条：品牌 + 标题 + slug */
   .top{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:12px 16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-  .brand{font-size:16px;font-weight:700;color:var(--t1);white-space:nowrap;letter-spacing:-.01em}
+  .brand{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:700;color:var(--t1);white-space:nowrap;letter-spacing:-.01em}
+  .brand-ico{width:22px;height:22px;flex:none;border-radius:5px}
   .fields{display:flex;gap:16px;flex:1;min-width:0;flex-wrap:wrap}
   .f{display:flex;flex-direction:column;gap:4px;flex:1;min-width:180px}
   .f label{font-size:12px;font-weight:600;color:var(--t3)}
@@ -70,7 +71,7 @@
   <div class="app" data-page-node-id="Gakf6ijpz1k8EQCcVpvcB7">
 
     <header class="top" data-page-node-id="vkJwHi9xG9uKU0K9mUwRI3">
-      <div class="brand" data-page-node-id="ZuzPC0zr3jYrsByMZonLwr">文章生成器</div>
+      <div class="brand" data-page-node-id="ZuzPC0zr3jYrsByMZonLwr"><img class="brand-ico" src="postmd-favicon.svg" alt="文章生成器"></div>
       <div class="fields" data-page-node-id="wxKcmgwvwdVPuscXOiv3M0">
         <div class="f" data-page-node-id="tXfwWerwo6wlw8DulfRu8Y">
           <label for="title" data-page-node-id="dCZ3GhDX0EJ8CEaeaJ7lGe">标题</label>

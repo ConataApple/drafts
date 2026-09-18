@@ -109,3 +109,44 @@ body {
     padding-inline-start: 1rem;
     border-inline-start: .3rem solid var(--primary);
 }
+
+
+/* ==================================================================
+   让「从 AI 复制过来的 HTML 排版」在站内正常显示
+   ------------------------------------------------------------------
+   背景：hugo.toml 里开了 markup.goldmark.renderer.unsafe = true，
+   正文中的裸 HTML 现在能输出。但 AI 生成的这段 HTML 用的是它自带的
+   一套 CSS 变量名（--color-background-primary、--color-text-primary…），
+   而 PaperMod 只定义了 --theme / --entry / --primary / --secondary /
+   --border / --code-bg 这些。变量名对不上 → var() 全部解析失败 →
+   卡片背景透明、边框消失、圆角归零、文字只剩继承色（"能看见但散架"）。
+
+   下面把这些变量统一「桥接」到主题自己的变量上。
+   因为右侧引用的都是主题变量，明暗模式会自动跟随，不需要写两份。
+   ================================================================== */
+:root {
+  /* 背景 */
+  --color-background-primary:   var(--entry);     /* 卡片：浅色=白，深色=比页面底略亮 */
+  --color-background-secondary: var(--code-bg);   /* 次级块：指标砖 / 代码底 */
+  --color-background-tertiary:  var(--code-bg);
+
+  /* 文字 */
+  --color-text-primary:   var(--primary);
+  --color-text-secondary: var(--secondary);
+  /* 三级文字：从 secondary 派生半透明，明暗都自然。
+     前一行是给不支持 color-mix() 的旧浏览器兜底。 */
+  --color-text-tertiary:  var(--secondary);
+  --color-text-tertiary:  color-mix(in srgb, var(--secondary) 78%, transparent);
+  --color-text-inverse:   var(--theme);
+
+  /* 描边 */
+  --color-border-primary:   var(--border);
+  --color-border-secondary: var(--border);
+  --color-border-tertiary:  var(--border);
+
+  /* 圆角 */
+  --border-radius-sm:   6px;
+  --border-radius-md:   8px;
+  --border-radius-lg:   12px;
+  --border-radius-full: 999px;
+}

@@ -46,9 +46,15 @@ theme = "PaperMod"
     url = "/search/"
     weight = 4
 
-# 让正文里的裸链接（https://… 或 www.…）自动变成可点的超链接
 [markup]
   [markup.goldmark]
+    # 允许正文里的裸 HTML / <style> / <script> 原样输出。
+    # Hugo 默认（unsafe = false）会把整段 HTML 丢掉，只留一行
+    # <!-- raw HTML omitted -->，这就是 AI 生成的卡片排版显示不出来的原因。
+    [markup.goldmark.renderer]
+      unsafe = true
+
+    # 让正文里的裸链接（https://… 或 www.…）自动变成可点的超链接
     [markup.goldmark.extensions]
       linkify = true
       linkifyProtocol = "https"
