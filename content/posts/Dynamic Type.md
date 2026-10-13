@@ -1,6 +1,6 @@
 ---
 title: "Dynamic Type"
-date: 2026-10-13T11:17:50+08:00
+date: 2026-10-13T11:23:15+08:00
 draft: false
 slug: "dynamic-type"
 ---
@@ -42,6 +42,22 @@ Apple 的系统字体是 **San Francisco (SF)**，它针对不同尺寸做了优
 | **Caption 1** | 12 pt | Regular | 图片说明、标签 |
 | **Caption 2** | 11 pt | Regular | 最小号的辅助文字 |
 
+```
+| 文本样式 (Style) | 默认字号 | 推荐字重 | 典型用途 |
+| :--- | :--- | :--- | :--- |
+| **Large Title** | 34 pt | Bold | 页面主标题（如"设置"首页） |
+| **Title 1** | 28 pt | Bold | 主要分区标题 |
+| **Title 2** | 22 pt | Bold | 次级分区标题 |
+| **Title 3** | 20 pt | Semibold | 三级标题 |
+| **Headline** | 17 pt | Semibold | 强调性正文（用于突出内容） |
+| **Body** | **17 pt** | Regular | **主要正文内容** |
+| **Callout** | 16 pt | Regular | 辅助性说明文字 |
+| **Subhead** | 15 pt | Regular | 次要内容 |
+| **Footnote** | 13 pt | Regular | 脚注、补充信息 |
+| **Caption 1** | 12 pt | Regular | 图片说明、标签 |
+| **Caption 2** | 11 pt | Regular | 最小号的辅助文字 |
+```
+
 ### ♿️ 关键功能：Dynamic Type（动态字体）
 
 这是 Apple 字体规范中**强制性**的部分。Dynamic Type 允许用户在系统设置中调整全局文字大小，支持从 xSmall 到 xxxLarge 的 **7 个默认级别**，若开启"更大的无障碍字体"，还会额外增加 **5 个超大级别**。
@@ -57,5 +73,3 @@ Apple 的官方字号规范主要基于英文字体 SF，**中文系统字体为
 ### 💎 总结
 
 iPhone 的字体设计规范可以概括为三点：**遵守 17pt 默认/11pt 最小的底线**；**使用系统提供的文本样式来构建层级**；**必须让所有文字都能响应 Dynamic Type 动态字体调整**。对于中文内容，需要在遵循系统框架的基础上，根据其字形特点适当调整最小字号和正文尺寸。
-
-如果你对某个具体的文本样式（比如如何在代码中实现动态字体）或者中文设计有更细节的疑问，可以再告诉我。
